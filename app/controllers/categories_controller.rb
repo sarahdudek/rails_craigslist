@@ -1,12 +1,11 @@
 class CategoriesController < ApplicationController
 
   def index
-    p ENV["GOOGLE_CLIENT_ID"]
     @categories = Category.all
   end
 
   def show
-    @category = Category.find_by(id: params[:id])
+    find_category
   end
 
   private
@@ -15,7 +14,7 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name)
   end
 
-  def find_post
+  def find_category
     @category = Category.find_by(id: params[:id])
   end
 
