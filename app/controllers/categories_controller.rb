@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
+    p ENV["GOOGLE_CLIENT_ID"]
     @categories = Category.all
   end
 

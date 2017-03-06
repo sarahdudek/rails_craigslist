@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'home/show'
+
   mount Ckeditor::Engine => '/ckeditor'
 
   root to: 'categories#index'
-
-  # get '/', to: 'categories#index'
 
   get '/posts', to: 'posts#index'
   get '/posts/new', to: 'posts#new', as: 'new_post'
@@ -19,5 +23,9 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: 'user'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
 end
