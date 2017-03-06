@@ -11,6 +11,10 @@
   <body>
     <div class="container home-link">
       <%= link_to "Home", root_path %>
+      <span>|</span>
+      <%= link_to 'New Post', new_post_path %>
+      <span>|</span>
+      <%#= link_to @user.email, user_path%>
     </div>
     <%= yield %>
   </body>
