@@ -34,6 +34,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'ckeditor', '~> 4.1'
+gem 'simple_form', '~> 3.2'
+gem 'bootstrap-sass', '~> 3.3'
+
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

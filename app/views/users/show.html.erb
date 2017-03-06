@@ -1,0 +1,9 @@
+<div class="col-sm-11 col-xs-12 blog-content">
+  <h2 class="text-center"><%= @user.email %></h2>
+  <% @user.posts.each do |post| %>
+  <div class="container post_title"><%= raw post.title %></div>
+  <div class="container post_body"><%= raw post.body %></div>
+  <h5 class="text-center"><%= post.created_at.strftime('%b %d, %Y') %></h5>
+
+  <% end %>
+</div>
