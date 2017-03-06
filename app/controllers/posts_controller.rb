@@ -14,10 +14,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     # @categories = Category.all
     if @post.save
-      flash[:notice] = "Successfully created post!"
       redirect_to post_path(@post)
     else
-      flash[:alert] = "Error creating new post!"
+      @error = @post.errors.full_messages
       render :new
     end
   end
